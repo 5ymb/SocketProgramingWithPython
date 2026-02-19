@@ -2,7 +2,6 @@
   <h1>🌐 Socket Programming with Python</h1>
   <p><b>A Fundamental Implementation of Client-Server Communication via TCP Sockets</b></p>
 
-  <img src="https://img.shields.io/badge/User-5ymb-blueviolet?style=for-the-badge&logo=github" alt="User 5ymb">
   <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Category-Networking-blue?style=for-the-badge" alt="Networking">
 </div>
@@ -52,7 +51,7 @@ The project consists of two main scripts that interact over a local or networked
 ### Usage
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/5ymb/SocketProgramingWithPython.git](https://github.com/5ymb/SocketProgramingWithPython.git)
+    git clone https://github.com/5ymb/SocketProgramingWithPython.git
     ```
 2.  **Run the Server first:**
     ```bash
@@ -65,12 +64,19 @@ The project consists of two main scripts that interact over a local or networked
 
 <hr />
 
-## 🛠️ Key Concepts Covered
+## 🛠️ Key Concepts & Configuration
+
+### 📡 Network Setup
+By default, the code uses `localhost` (127.0.0.1). To test this across two different machines on the same network:
+* **Server:** Change the IP in `server.py` to `0.0.0.0` to listen on all available network interfaces.
+* **Client:** Change the IP in `client.py` to the **Private IP address** of the Server machine (e.g., `192.168.1.5`).
+* **Firewall:** Ensure the chosen Port (e.g., 12345) is allowed through your OS firewall.
+
+### 💻 Code Features
 <ul>
-  <li><b>Socket Creation:</b> Using <code>socket.socket()</code> to define the address family (AF_INET) and protocol (SOCK_STREAM).</li>
-  <li><b>Bind & Listen:</b> Setting up the server to "wait" on a specific network interface.</li>
-  <li><b>Data Encoding:</b> Handling the transformation of string data into bytes for transmission across the network.</li>
-  <li><b>Resource Management:</b> Properly closing sockets to prevent port hanging and memory leaks.</li>
+  <li><b>Socket Creation:</b> Uses <code>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</code> for IPv4 TCP communication.</li>
+  <li><b>Encoding/Decoding:</b> Uses <code>.encode()</code> and <code>.decode()</code> to transform string data into bytes for network transit.</li>
+  <li><b>Error Handling:</b> Demonstrates the importance of closing connections to avoid "Address already in use" errors.</li>
 </ul>
 
 <hr />
